@@ -34,7 +34,7 @@
     const randomSymbols = () => {
         const symbols = '{}[]()<>|\\/!@#$%^&*-_=+123456789';
         let noise = '';
-        const length = Math.floor(Math.random() * 6) + 2;
+        const length = Math.floor(Math.random() * 10) + 3;
 
         for (let i = 0; i < length; i++) {
             noise += symbols[Math.floor(Math.random()* symbols.length)]
@@ -54,13 +54,30 @@
 
     const renderWords = () => {
         words.forEach((word) => {
-            const wordUI = document.createElement('div');
-            wordUI.className = 'word';
-            wordUI.textContent = word;
+        
+        const lineUI = document.createElement('div');
+        
 
-            terminalUI.appendChild(wordUI);
-        });
-    };
+        
+        const symbolsBefore = document.createElement('span');
+        symbolsBefore.textContent = `${randomSymbols()} `;
+        lineUI.appendChild(symbolsBefore);
+
+        
+        const wordUI = document.createElement('span');
+        wordUI.className = 'word'; 
+        wordUI.textContent = `${word} `;
+        lineUI.appendChild(wordUI);
+
+        
+        const symbolsAfter = document.createElement('span');
+        symbolsAfter.textContent = `${randomSymbols()}`;
+        lineUI.appendChild(symbolsAfter);
+
+        
+        terminalUI.appendChild(lineUI);
+    });
+}
 
     renderWords();
 

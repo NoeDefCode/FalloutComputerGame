@@ -12,22 +12,32 @@ body {
   
   
   .terminal {
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 15px; 
-    margin: 20px auto;
-    width: 80%; 
-    justify-content: center; 
+    .terminal {
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(16ch, 1fr)); /* Colonnes adaptatives basées sur la largeur des mots */
+        gap: 0; 
+        justify-content: start; 
+        padding: 10px; 
+    }
   }
+
+  div, span, p {
+    margin: 0; 
+    padding: 0; 
+    border: none; 
+    background: none; 
+    display: inline; 
+}
   
   
   .word {
     display: inline-block;
     padding: 10px;
-    border: 1px solid #33ff33;
+    border: none;
     text-align: center;
     cursor: pointer; 
     white-space: nowrap; 
+    color: #008000;
   }
   
   .word:hover {
@@ -42,3 +52,4 @@ body {
     font-size: 18px;
     color: #ff3333; 
   }
+
