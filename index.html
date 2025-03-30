@@ -8,16 +8,35 @@
 <body>
     
 <div class="head">
-<div class="head-container">
-<div id="title">
-    <h1>Fallout computer game</h1>
-    <h2>Level 1</h2>
+    <div id="title">
+        <h1>Fallout Terminal Game</h1>
+        <h2>Trouve le bon mot de passe</h2>
+        <h3>Level 1</h3>
+    </div>
 </div>
 
+<div class="main">
+    <div class="terminal">
+
+    </div>
 </div>
 
-</div>
+<script>
 
+    let wordLevel1 = ["coeur", "table", "arbre", "chien", "fleur", "fruit", "point", "valve", "livre"];
+    
+    const randomPasswordSelector = () => {
+    
+        const randomIndex = Math.floor(Math.random() * wordLevel1.length);
+        const password = wordLevel1[randomIndex];
+        return password;
+    }
+    
+    console.log(randomPasswordSelector());
+
+    </script>
 
 </body>
+
+
 </html>
