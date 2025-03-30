@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="Terminal">
+<div class="terminal">
 
 </div>
 
@@ -24,15 +24,47 @@
 
     let wordLevel1 = ["coeur", "table", "arbre", "chien", "fleur", "fruit", "point", "valve", "livre"];
     
-    const randomPasswordSelector = () => {
+    const randomPasswordSelector = (array) => {
     
-        const randomIndex = Math.floor(Math.random() * wordLevel1.length);
-        const password = wordLevel1[randomIndex];
+        const randomIndex = Math.floor(Math.random() * array.length);
+        const password = array[randomIndex];
         return password;
     }
-    
-    console.log(randomPasswordSelector());
 
+    const randomSymbols = () => {
+        const symbols = '{}[]()<>|\\/!@#$%^&*-_=+123456789';
+        let noise = '';
+        const length = Math.floor(Math.random() * 6) + 2;
+
+        for (let i = 0; i < length; i++) {
+            noise += symbols[Math.floor(Math.random()* symbols.length)]
+        };
+
+        return noise;
+
+
+    }
+
+    console.log(randomSymbols());
+    
+    console.log(randomPasswordSelector(wordLevel1));
+
+    const terminalUI = document.querySelector('.terminal');
+    let words = wordLevel1;
+
+    const renderWords = () => {
+        words.forEach((word) => {
+            const wordUI = document.createElement('div');
+            wordUI.className = 'word';
+            wordUI.textContent = word;
+
+            terminalUI.appendChild(wordUI);
+        });
+    };
+
+    renderWords();
+
+    
     </script>
 
 </body>
